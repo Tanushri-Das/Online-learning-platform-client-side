@@ -1,23 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import { RouterProvider } from 'react-router-dom';
+import routes from './Routes/Routes/Routes';
+import { useContext } from 'react';
+import { ThemeContext } from './Context/Theme';
+
 
 function App() {
+  const [{ theme, isDark }, toggleTheme]=useContext(ThemeContext)
+  console.log(theme)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className='app' style={{backgroundColor:theme.backgroundColor,color:theme.color}}>
+      <RouterProvider router={routes} >{isDark ? "Dark" :"Light"}</RouterProvider>
     </div>
   );
 }
