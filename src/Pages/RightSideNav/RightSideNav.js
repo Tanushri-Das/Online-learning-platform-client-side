@@ -17,7 +17,7 @@ const RightSideNav = () => {
       <Row>
         {courses?.map((course) => (
           <Col md={6} key={course.id} className="mb-3">
-            <Card style={{ height: "640px" }}>
+            <Card className="h-100">
               <Card.Img
                 variant="top"
                 src={course.image_url}
@@ -25,10 +25,10 @@ const RightSideNav = () => {
               />
               <Card.Body className="d-flex flex-column justify-content-center align-items-center">
                 <Card.Title>{course.title}</Card.Title>
-                <Card.Text>{course.details.slice(0, 280) + "..."}</Card.Text>
+                <Card.Text className="mt-2">{course.details.slice(0, 280) + "..."}</Card.Text>
                 <Link to={`/courses/${course.id}`} style={{ marginTop: "auto" }}>
                   <Button
-                    variant="outline-secondary"
+                    variant="outline-success fw-semibold"
                     className="w-full"
                   >
                     Go Details

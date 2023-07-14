@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
 import { ThemeProvider } from "./Context/Theme";
-
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

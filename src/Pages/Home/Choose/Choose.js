@@ -1,21 +1,20 @@
 import React from "react";
-import { useContext } from "react";
+
 import { Card, Container, Image, Row } from "react-bootstrap";
-import { ThemeContext } from "../../../Context/Theme";
+
 
 const Choose = () => {
-  const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
+
   return (
-    <div className="my-5">
-      <h4 className="text-center">Why Choose Us</h4>
-      <p className="text-center">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis,
-        praesentium vitae cupiditate voluptatem eaque suscipit.
+    <div className="mb-5">
+      <h2 className="text-center mb-4 fw-bold">Why Choose Us</h2>
+      <p className="text-center fw-medium mb-5" style={{fontSize:'18px'}}>
+        At our learning platform, we offer exceptional features that set us apart. Choose us for:
       </p>
       <Container>
         <Row>
           <div className="col-lg-4">
-            <Card className="pt-4">
+            <Card className="pt-4 mb-3 shadow rounded-3">
               <Card.Img
                 variant="top"
                 className="mx-auto w-25"
@@ -24,15 +23,17 @@ const Choose = () => {
               <Card.Body>
                 <Card.Title
                   className="text-center"
-                  style={{ color: isDark ? "black" : "black" }}
                 >
                   Best Quality
                 </Card.Title>
+                <Card.Text className="text-center">
+                  Our courses are designed and delivered with the highest quality standards to ensure an enriching learning experience.
+                </Card.Text>
               </Card.Body>
             </Card>
           </div>
           <div className="col-lg-4">
-            <Card className="pt-4">
+            <Card className="pt-4 mb-3 shadow rounded-3">
               <Card.Img
                 variant="top"
                 className="mx-auto w-25"
@@ -40,15 +41,17 @@ const Choose = () => {
               />
               <Card.Body>
                 <Card.Title className="text-center"
-                  style={{ color: isDark ? "black" : "black" }}
                 >
                   24/7 Support
                 </Card.Title>
+                <Card.Text className="text-center">
+                  We offer round-the-clock support to assist you with any questions or issues you may have during your learning journey.
+                </Card.Text>
               </Card.Body>
             </Card>
           </div>
           <div className="col-lg-4">
-            <Card className="pt-4">
+            <Card className="pt-4 shadow rounded-3">
               <Card.Img
                 variant="top"
                 className="mx-auto w-25"
@@ -57,10 +60,12 @@ const Choose = () => {
               <Card.Body>
                 <Card.Title
                  className="text-center"
-                 style={{ color: isDark ? "black" : "black" }}
                 >
                   Expert Team
                 </Card.Title>
+                <Card.Text className="text-center">
+                  Our team consists of experienced and knowledgeable professionals who are dedicated to providing you with the best learning experience.
+                </Card.Text>
               </Card.Body>
             </Card>
           </div>

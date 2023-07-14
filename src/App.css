@@ -11,10 +11,6 @@ body {
   transition: color 0.2s ease-in;
 }
 
-#app {
-  height: 100vh;
-  width: 100%;
-}
 
 main {
   background-color: #f7fafc;

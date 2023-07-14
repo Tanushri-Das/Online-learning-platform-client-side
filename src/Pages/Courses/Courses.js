@@ -6,7 +6,7 @@ import RightSideNav from '../RightSideNav/RightSideNav'
 
 const Courses = () => {
   return (
-    <Container className="mt-4">
+    <Container className="my-5">
     <Row>
       <Col lg="4" className="d-none d-lg-block">
         <LeftSideNav/>

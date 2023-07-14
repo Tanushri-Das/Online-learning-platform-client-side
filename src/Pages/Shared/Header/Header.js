@@ -103,18 +103,12 @@ import { ThemeContext } from "../../../Context/Theme";
 import { DarkModeToggle } from "@anatoliygatt/dark-mode-toggle";
 import "./Header.css"; // Import the CSS file for styling
 
-import img from "../../../Assests/Ellipse 2.png";
-
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  const [{ theme, isDark }, toggleTheme] = useContext(ThemeContext);
-  const [mode, setMode] = useState("dark");
 
   const handleLogOut = () => {
     logOut()
@@ -125,21 +119,14 @@ const Header = () => {
   };
 
   return (
-    <>
-      <Navbar
-        collapseOnSelect
-        expand="sm"
-        style={{ borderBottom: "1px solid red" }}
-      >
-        <Container
-          fluid
-          className="py-2 d-flex align-items-center justify-content-between"
-        >
+    <div className="shadow">
+      <Navbar collapseOnSelect expand="sm">
+        <Container className="py-2 d-flex align-items-center justify-content-center">
           <Navbar.Brand
             href="/"
-            className={`${isDark ? "white-brand" : "black-brand"} fs-2`}
+            className="fs-2 text-center fw-bold"
           >
-            Dream CSE
+            TechEdify
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
@@ -150,93 +137,52 @@ const Header = () => {
           >
             <Offcanvas.Body>
               <Nav
-                className={`mx-auto ${
-                  isDark ? "white-navlinks" : "black-navlinks"
-                }`}
+                className="mx-auto justify-content-center align-items-center"
               >
-                <Nav.Link className="fs-5" href="/courses">
+                <Nav.Link className="fs-5 text-dark fw-semibold" href="/courses">
                   Courses
                 </Nav.Link>
-                <Nav.Link className="fs-5" href="/blog">
-                  Blog
-                </Nav.Link>
+                {user?.uid && (
+                  <>
+                    <Nav.Link className="fs-5 text-dark fw-semibold" href="#faq">
+                      FAQ
+                    </Nav.Link>
+                    <Nav.Link className="fs-5 text-dark fw-semibold" href="#team">
+                      Team
+                    </Nav.Link>
+                    <Nav.Link className="fs-5 text-dark fw-semibold" href="#feedback">
+                      Feedback
+                    </Nav.Link>
+                  </>
+                )}
               </Nav>
               <Nav>
                 <Nav.Link href="#deets">
                   {user?.uid ? (
                     <>
-                      <span>{user?.displayName}</span>
-                      <Button variant="light" onClick={handleLogOut}>
+                      <NavLink
+                        to="#"
+                        className="nav-link text-dark fw-semibold fs-5"
+                        onClick={handleLogOut}
+                      >
                         LogOut
-                      </Button>
+                      </NavLink>
                     </>
                   ) : (
                     <Nav.Link
-                      className={`fs-5 ${
-                        isDark ? "white-navlinks" : "black-navlinks"
-                      }`}
+                      className="text-dark fw-semibold fs-5"
                       href="/login"
-                      style={{ color: isDark ? "white" : "black" }}
                     >
                       Login
                     </Nav.Link>
                   )}
                 </Nav.Link>
-                <Nav.Link eventKey={2} href="#memes" className="ms-3">
-                  <Link eventKey={2} to="/userinformation">
-                    {user?.photoURL ? (
-                      <Image
-                        style={{ height: "50px" }}
-                        roundedCircle
-                        src="https://media.gettyimages.com/id/98784589/photo/anjum-chopra-of-india-icc-t20-world-cup-squad-on-may-1-2010-in-st-kitts-saint-kitts-and-nevis.jpg?s=612x612&w=gi&k=20&c=9T1W8u9UV79W9ZgVhJOfXsdSG1RsrmyUaUHAFiGXV90"
-                      ></Image>
-                    ) : (
-                      <FaUser />
-                    )}
-                  </Link>
-                </Nav.Link>
-
-                <Button
-                  onClick={toggleTheme}
-                  className="border-0 bg-transparent"
-                >
-                  <DarkModeToggle
-                    mode={mode}
-                    dark={
-                      <span
-                        className="fs-6"
-                        style={{ color: isDark ? "white" : "black" }}
-                      >
-                        Dark
-                      </span>
-                    }
-                    light={
-                      <span
-                        className="fs-6"
-                        style={{ color: isDark ? "white" : "black" }}
-                      >
-                        Light
-                      </span>
-                    }
-                    inactiveTrackColor="#e2e8f0"
-                    inactiveTrackColorOnHover="#f8fafc"
-                    inactiveTrackColorOnActive="#cbd5e1"
-                    activeTrackColor="#334155"
-                    activeTrackColorOnHover="#1e293b"
-                    activeTrackColorOnActive="#0f172a"
-                    inactiveThumbColor="#1e293b"
-                    activeThumbColor="#e2e8f0"
-                    onChange={(mode) => {
-                      setMode(mode);
-                    }}
-                  />
-                </Button>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 };
 

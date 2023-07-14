@@ -11,18 +11,16 @@
     z-index: 9;
     background: #EC1C23;
     text-decoration: none;
-
-
 }
 
 .default-btn:hover {
     color: #EC1C23;
     background: #fff;
 }
-.banner{
-    background-image: url('https://htmldemo.net/eduhome/eduhome/img/slider/slider1.jpg');
+.banner {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://htmldemo.net/eduhome/eduhome/img/slider/slider1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height:90vh;
-
-}
+    height: 80vh;
+  }
+  

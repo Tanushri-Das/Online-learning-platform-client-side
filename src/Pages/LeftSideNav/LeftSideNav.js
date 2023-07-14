@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import '../LeftSideNav/LeftSideNav.css'
 
 const LeftSideNav = () => {
 
@@ -14,7 +15,7 @@ const LeftSideNav = () => {
     <div>
         {
             courses?.map(course =><p key={course.id}>
-                <Link class="text-decoration-none" to={`/courses/${course.id}`}>{course.name}</Link>
+                <Link className="text-decoration-none course-link fw-semibold" to={`/courses/${course.id}`}>{course.name}</Link>
             </p>)
         }
     </div>

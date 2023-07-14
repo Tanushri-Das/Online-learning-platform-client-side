@@ -1,13 +1,10 @@
-.go-card{
-
-}
-.go-card-img{
-    width:auto;
-    height: 450px;
+.go-card-img {
+  width: auto;
+  height: 450px;
 }
 
-@media screen and (max-width:576px){
-    .card{
-        width:100%;
-    }
+@media screen and (max-width: 576px) {
+  .card {
+    width: 100%;
+  }
 }

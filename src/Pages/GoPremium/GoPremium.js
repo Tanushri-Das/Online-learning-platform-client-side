@@ -2,19 +2,12 @@ import React from "react";
 import { Card, Container, Image, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import "./GoPremium.css";
-import DownloadPage from "../DawnloadPage/DawnloadPage";
 
 const GoPremium = () => {
   const premiumPage = useLoaderData();
   console.log(premiumPage);
   return (
-    <div>
-      <div>
-        <DownloadPage
-          rootElementId="detailsToPDf"
-          downloadFileName="checkPage"
-        />
-      </div>
+    <div className="my-5">
       <div id="detailsToPDf">
         <Container className="">
           <Row>
